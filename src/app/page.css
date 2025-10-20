@@ -1,0 +1,163 @@
+.parent_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+h1 {
+  font-size: 1rem;
+  padding: 1rem;
+  color: #ffffff;
+}
+
+h1.box {
+  outline-color: blue;
+  outline-style: solid;
+}
+
+h1.box2 {
+  outline-color: rgb(220, 253, 30);
+  outline-style: solid;
+}
+
+h1.box3 {
+  outline-color: red;
+  outline-style: solid;
+}
+
+h1.box4 {
+  outline-color: rgb(57, 242, 255);
+  outline-style: solid;
+}
+
+h1.quiz {
+  font-size: 3rem;
+}
+
+.question-section {
+  width: 100%;
+  position: relative;
+  font-size: 2rem;
+}
+
+.quiz-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #6b46c1, #4c51bf);
+  padding: 20px;
+  color: white;
+}
+
+.quiz-box {
+  .card {
+    background: white;
+    color: #333;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+    width: 400px;
+    text-align: center;
+  }
+
+  .quiz-title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ffffff;
+  }
+}
+
+.optionButton {
+  font-size: 2rem;
+  color: #ffffff;
+  background-color: #252d4a;
+  border-radius: 10px;
+  display: flex;
+  padding: "12px 16px";
+  border: none;
+  cursor: pointer;
+  transition: "0.3s";
+  margin-bottom: 10px;
+}
+
+button:hover {
+  background-color: #555e7d;
+}
+
+button:focus {
+  outline: none;
+}
+
+button svg {
+  margin-right: 5px;
+}
+
+.optionsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+
+.restartButton {
+  margin-top: 20px;
+  padding: 12px 16px;
+  font-size: 1rem;
+  background: #493939;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.resultContainer {
+  text-align: center;
+}
+
+.nextButton {
+  padding: 12px 16px;
+  font-size: 1.5rem;
+  background: #11111d;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.optionButton.reveal {
+  outline: 2px solid #22c55e;
+  outline-offset: 2px;
+}
+
+.nextButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.nextButton:hover:not(:disabled) {
+  filter: brightness(0.95);
+  transform: translateY(-1px);
+}
+
+.optionButton.incorrect {
+  background: #ef4444;
+  color: #fff;
+  border-color: transparent;
+}
+
+.optionButton.correct {
+  background: #22c55e;
+  color: #fff;
+  border-color: transparent;
+}
+
+.correctText {
+  color: #22c55e; /* green-500 */
+}
+.incorrectText {
+  color: #ef4444; /* red-500 */
+}
