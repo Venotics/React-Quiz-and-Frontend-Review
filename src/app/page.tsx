@@ -1,7 +1,7 @@
 "use client";
 
 import "./page.css";
-import React from "react";
+import React, { useState } from "react";
 import qBank from "./qBank";
 
 const shuffleArray = (array: string[]) => {
@@ -18,6 +18,67 @@ export default function Home() {
   const [showScore, setShowScore] = React.useState(false);
   const [score, setScore] = React.useState(0);
   const [selected, setSelected] = React.useState<string | null>(null);
+
+  const [useStateHookOpen, setUseStateHookOpen] = useState(false);
+  const [useRefHookOpen, setUseRefHookOpen] = useState(false);
+  const [useEffectHookOpen, setUseEffectHookOpen] = useState(false);
+  const [useContextHookOpen, setUseContextHookOpen] = useState(false);
+  const [useCallbackHookOpen, setUseCallbackHookOpen] = useState(false);
+  const [useMemoHookOpen, setUseMemoHookOpen] = useState(false);
+
+  const clickUseState = () => {
+    setUseStateHookOpen(!useStateHookOpen);
+    setUseRefHookOpen(false);
+    setUseEffectHookOpen(false);
+    setUseContextHookOpen(false);
+    setUseCallbackHookOpen(false);
+    setUseMemoHookOpen(false);
+  };
+
+  const clickUseRef = () => {
+    setUseRefHookOpen(!useRefHookOpen);
+    setUseStateHookOpen(false);
+    setUseEffectHookOpen(false);
+    setUseContextHookOpen(false);
+    setUseCallbackHookOpen(false);
+    setUseMemoHookOpen(false);
+  };
+
+  const clickUseEffect = () => {
+    setUseEffectHookOpen(!useEffectHookOpen);
+    setUseStateHookOpen(false);
+    setUseRefHookOpen(false);
+    setUseContextHookOpen(false);
+    setUseCallbackHookOpen(false);
+    setUseMemoHookOpen(false);
+  };
+
+  const clickUseContext = () => {
+    setUseContextHookOpen(!useContextHookOpen);
+    setUseStateHookOpen(false);
+    setUseRefHookOpen(false);
+    setUseEffectHookOpen(false);
+    setUseCallbackHookOpen(false);
+    setUseMemoHookOpen(false);
+  };
+
+  const clickUseCallback = () => {
+    setUseCallbackHookOpen(!useCallbackHookOpen);
+    setUseStateHookOpen(false);
+    setUseRefHookOpen(false);
+    setUseEffectHookOpen(false);
+    setUseContextHookOpen(false);
+    setUseMemoHookOpen(false);
+  };
+
+  const clickUseMemo = () => {
+    setUseMemoHookOpen(!useMemoHookOpen);
+    setUseStateHookOpen(false);
+    setUseRefHookOpen(false);
+    setUseEffectHookOpen(false);
+    setUseContextHookOpen(false);
+    setUseCallbackHookOpen(false);
+  };
 
   const [shuffledQuestions] = React.useState(() =>
     qBank.map((q) => ({
@@ -52,6 +113,17 @@ export default function Home() {
 
   return (
     <div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <h1 style={{ fontSize: "2rem", fontWeight: "bold" }}>
+          How to center a div
+        </h1>
+      </div>
       <div className="parent_container">
         <h1 className="box">
           This div is centered using a separate CSS class called
@@ -61,7 +133,6 @@ export default function Home() {
           <br></br> align-items: center;
         </h1>
       </div>
-
       <div
         style={{
           display: "flex",
@@ -81,7 +152,6 @@ export default function Home() {
           <br></br> padding: '1rem'{"}}"}&gt;
         </h1>
       </div>
-
       <div className="flex justify-center items-center p-4">
         <h1 className="box3">
           {" "}
@@ -89,7 +159,6 @@ export default function Home() {
           <br></br> &lt;div className="flex justify-center items-center p-4"&gt;
         </h1>
       </div>
-
       <div className="grid justify-center items-center p-4">
         <h1 className="box4">
           {" "}
@@ -97,7 +166,6 @@ export default function Home() {
           <br></br> &lt;div className="grid justify-center items-center p-4"&gt;
         </h1>
       </div>
-
       <div className="quiz-container">
         <div className="quiz-box">
           <h1 className="quiz-title">React Quiz</h1>
@@ -173,6 +241,219 @@ export default function Home() {
                 Next
               </button>
             </div>
+          </div>
+        )}
+      </div>
+
+      {/* React Hooks Review Section */}
+      <div
+        style={{
+          display: "grid",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <h1 style={{ fontSize: "2rem", fontWeight: "bold" }}>
+          React Hooks Review
+        </h1>
+      </div>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "auto auto auto",
+          gap: "1rem",
+          padding: "1rem",
+        }}
+      >
+        <h1
+          style={{
+            border: "solid",
+            borderColor: "rgba(40, 255, 130, 1)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            cursor: "pointer",
+          }}
+          onClick={clickUseState}
+        >
+          useState
+        </h1>
+        {useStateHookOpen && (
+          <div
+            style={{
+              gridColumn: "span 3",
+              border: "solid",
+              borderColor: "rgba(100, 100, 255, 1)",
+              padding: "1rem",
+            }}
+          >
+            <h2 style={{ fontWeight: "bold" }}>Definition:</h2>
+            <p>
+              The useState hook is a fundamental React hook that allows you to
+              add state management to functional components. It returns an array
+              with two elements: the current state value and a function to
+              update that state.
+            </p>
+          </div>
+        )}
+        <h1
+          style={{
+            border: "solid",
+            borderColor: "rgba(40, 255, 130, 1)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            cursor: "pointer",
+          }}
+          onClick={clickUseEffect}
+        >
+          useEffect
+        </h1>
+        {useEffectHookOpen && (
+          <div
+            style={{
+              gridColumn: "span 3",
+              border: "solid",
+              borderColor: "rgba(100, 100, 255, 1)",
+              padding: "1rem",
+            }}
+          >
+            <h2 style={{ fontWeight: "bold" }}>Definition:</h2>
+            <p>
+              The useEffect hook is a fundamental React hook that allows you to
+              perform side effects in functional components. It takes a function
+              as its first argument, which is executed after the component
+              renders. The second argument is an optional dependency array that
+              determines when the effect should re-run.
+            </p>
+          </div>
+        )}
+        <h1
+          style={{
+            border: "solid",
+            borderColor: "rgba(40, 255, 130, 1)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            cursor: "pointer",
+          }}
+          onClick={clickUseContext}
+        >
+          useContext
+        </h1>
+        {useContextHookOpen && (
+          <div
+            style={{
+              gridColumn: "span 3",
+              border: "solid",
+              borderColor: "rgba(100, 100, 255, 1)",
+              padding: "1rem",
+            }}
+          >
+            <h2 style={{ fontWeight: "bold" }}>Definition:</h2>
+            <p>
+              The useContext hook is a fundamental React hook that allows you to
+              access the value of a context directly within a functional
+              component. It takes a context object (created using
+              React.createContext) as its argument and returns the current
+              context value, enabling components to consume context without
+              needing to wrap them in a Context.Consumer component.
+            </p>
+          </div>
+        )}
+        <h1
+          style={{
+            border: "solid",
+            borderColor: "rgba(40, 255, 130, 1)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            cursor: "pointer",
+          }}
+          onClick={clickUseRef}
+        >
+          useRef
+        </h1>
+        {useRefHookOpen && (
+          <div
+            style={{
+              gridColumn: "span 3",
+              border: "solid",
+              borderColor: "rgba(100, 100, 255, 1)",
+              padding: "1rem",
+            }}
+          >
+            <h2 style={{ fontWeight: "bold" }}>Definition:</h2>
+            <p>
+              The useRef hook is a fundamental React hook that allows you to
+              create a mutable reference that persists across renders. It
+              returns a ref object with a current property that can be used to
+              store a value or reference a DOM element.
+            </p>
+          </div>
+        )}
+        <h1
+          style={{
+            border: "solid",
+            borderColor: "rgba(40, 255, 130, 1)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            cursor: "pointer",
+          }}
+          onClick={clickUseMemo}
+        >
+          useMemo
+        </h1>
+        {useMemoHookOpen && (
+          <div
+            style={{
+              gridColumn: "span 3",
+              border: "solid",
+              borderColor: "rgba(100, 100, 255, 1)",
+              padding: "1rem",
+            }}
+          >
+            <h2 style={{ fontWeight: "bold" }}>Definition:</h2>
+            <p>
+              The useMemo hook is a fundamental React hook that allows you to
+              memoize the result of a computation or function call. It takes a
+              function and a dependency array as arguments and returns a
+              memoized value that only recomputes when one of the dependencies
+              changes.
+            </p>
+          </div>
+        )}
+        <h1
+          style={{
+            border: "solid",
+            borderColor: "rgba(40, 255, 130, 1)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            cursor: "pointer",
+          }}
+          onClick={clickUseCallback}
+        >
+          useCallback
+        </h1>
+        {useCallbackHookOpen && (
+          <div
+            style={{
+              gridColumn: "span 3",
+              border: "solid",
+              borderColor: "rgba(100, 100, 255, 1)",
+              padding: "1rem",
+            }}
+          >
+            <h2 style={{ fontWeight: "bold" }}>Definition:</h2>
+            <p>
+              The useCallback hook is a fundamental React hook that allows you
+              to memoize a function definition. It takes a function and a
+              dependency array as arguments and returns a memoized version of
+              the function that only changes if one of the dependencies has
+              changed.
+            </p>
           </div>
         )}
       </div>
