@@ -50,6 +50,7 @@ h1.quiz {
   background: linear-gradient(to bottom right, #6b46c1, #4c51bf);
   padding: 20px;
   color: white;
+  border-radius: 10px;
 }
 
 .quiz-box {
@@ -160,4 +161,11 @@ button svg {
 }
 .incorrectText {
   color: #ef4444; /* red-500 */
+}
+
+.propsBackground {
+  background-color: #24a379; /* slate-800 */
+  padding: 1rem;
+  border-radius: 0.5rem;
+  min-height: 50vh;
 }
