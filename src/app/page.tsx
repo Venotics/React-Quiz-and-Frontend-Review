@@ -4,6 +4,7 @@ import "./page.css";
 import React, { useState } from "react";
 import qBank from "./qBank";
 import PropsExample from "./propsExample";
+import ApiRequestExample from "./apiExample/apiRequest";
 
 const shuffleArray = (array: string[]) => {
   const shuffled = [...array];
@@ -517,6 +518,7 @@ export default function Home() {
 
         <PropsExample message={message} />
       </div>
+      <div className="apiBackground">{/* <ApiRequestExample /> */}</div>
     </div>
   );
 }
